@@ -53,20 +53,21 @@ Przelicza podaną kwotę z jednej waluty na inną.
 - Docker / Docker Compose
 
 ## Uruchomienie lokalne (Musisz mieć Golang zainstalowany lokalnie)
-Jeśli masz własny <api_key> dla `https://openexchangerates.org/` przypisz jego wartość do zmiennej środowiskowej OPENEXCHANGE_APP_ID. <br>
-Jeśli nie masz, znajdziesz mój <api_key> w pliku `docker-compose.yaml`. <br>
-`export OPENEXCHANGE_APP_ID=<api_key>`<br>
-`export SERVER_PORT=3001`<br><br>
+Jeśli masz własny <api_key> dla `https://openexchangerates.org/` przypisz jego wartość do zmiennej środowiskowej OPENEXCHANGE_APP_ID. 
 
-`go run ./cmd/app`<br><br>
+Jeśli nie masz, znajdziesz mój <api_key> w pliku `docker-compose.yaml`. 
+- `export OPENEXCHANGE_APP_ID=<api_key>`
+- `export SERVER_PORT=3001`
+
+- `go run ./cmd/app`
 
 Serwer wystartuje na `http://localhost:3001`.
 
 ## Uruchomienie w Dockerze
-`docker compose up`
+- `docker compose up`
 
 Serwer również wystartuje na `http://localhost:3001`.
 
 ## Przykłady `curl`
-`curl 'localhost:3001/rates?currencies=USD,GBP,EUR'`<br>
-`curl 'localhost:3001/exchange?from=USDT&to=BEER&amount=1.0'`
+- `curl 'localhost:3001/rates?currencies=USD,GBP,EUR'`<br>
+- `curl 'localhost:3001/exchange?from=USDT&to=BEER&amount=1.0'`
