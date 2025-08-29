@@ -64,6 +64,19 @@ func TestRatesEndpoint(t *testing.T) {
 			wantRates:         []types.ConvertedRate{},
 			wantEmptyResponse: true,
 		},
+		{
+			name:       "test duplicates",
+			url:        "/rates?currencies=USD,GBP,EUR,GBP",
+			wantStatus: 200,
+			wantRates: []types.ConvertedRate{
+				{From: "USD", To: "GBP", Rate: decimal.RequireFromString("0.743283")},
+				{From: "GBP", To: "USD", Rate: decimal.RequireFromString("1.3453825797172813")},
+				{From: "USD", To: "EUR", Rate: decimal.RequireFromString("0.861355")},
+				{From: "EUR", To: "USD", Rate: decimal.RequireFromString("1.1609615083211916")},
+				{From: "GBP", To: "EUR", Rate: decimal.RequireFromString("1.1588520119523788")},
+				{From: "EUR", To: "GBP", Rate: decimal.RequireFromString("0.8629229527895003")},
+			},
+		},
 	}
 	for _, tc := range cases {
 		t.Run(tc.name, func(t *testing.T) {
