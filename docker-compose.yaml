@@ -1,0 +1,10 @@
+services:
+  go-app:
+    build: .
+    container_name: currency_converter
+    environment:
+      - SERVER_PORT=3001
+      - OPENEXCHANGE_APP_ID=cae566f23c2840838f33358be3350fa9
+      - GIN_MODE=release
+    ports:
+      - "3001:3001"
