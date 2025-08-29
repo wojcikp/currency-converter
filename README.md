@@ -19,9 +19,12 @@ Zwraca aktualne kursy wymiany dla podanych walut względem siebie.
 **Odpowiedź:**
 ```json
 [
-  {"from": "USD", "to": "EUR", "rate": "0.92"},
-  {"from": "EUR", "to": "USD", "rate": "1.09"},
-  {"from": "USD", "to": "GBP", "rate": "0.78"}
+    {"from":"USD","to":"GBP","rate":"0.74292"},
+    {"from":"GBP","to":"USD","rate":"1.3460399504657298"},
+    {"from":"USD","to":"EUR","rate":"0.857718"},
+    {"from":"EUR","to":"USD","rate":"1.1658843582622727"},
+    {"from":"GBP","to":"EUR","rate":"1.1545226942335649"},
+    {"from":"EUR","to":"GBP","rate":"0.8661588074402076"}
 ]
 ```
 
@@ -50,12 +53,12 @@ Przelicza podaną kwotę z jednej waluty na inną.
 - Docker / Docker Compose
 
 ## Uruchomienie lokalne (Musisz mieć Golang zainstalowany lokalnie)
-Jeśli masz własny <api_key> dla `https://openexchangerates.org/` przypisz jego wartość do zmiennej środowiskowej OPENEXCHANGE_APP_ID. 
-Jeśli nie masz, znajdziesz mój <api_key> w pliku `docker-compose.yaml`
-`export OPENEXCHANGE_APP_ID=<api_key>`
-`export SERVER_PORT=3001`
+Jeśli masz własny <api_key> dla `https://openexchangerates.org/` przypisz jego wartość do zmiennej środowiskowej OPENEXCHANGE_APP_ID. <br>
+Jeśli nie masz, znajdziesz mój <api_key> w pliku `docker-compose.yaml`. <br>
+`export OPENEXCHANGE_APP_ID=<api_key>`<br>
+`export SERVER_PORT=3001`<br><br>
 
-`go run ./cmd/app`
+`go run ./cmd/app`<br><br>
 
 Serwer wystartuje na `http://localhost:3001`.
 
@@ -65,5 +68,5 @@ Serwer wystartuje na `http://localhost:3001`.
 Serwer również wystartuje na `http://localhost:3001`.
 
 ## Przykłady `curl`
-`curl 'localhost:3001/rates?currencies=USD,GBP,EUR'`
+`curl 'localhost:3001/rates?currencies=USD,GBP,EUR'`<br>
 `curl 'localhost:3001/exchange?from=USDT&to=BEER&amount=1.0'`
